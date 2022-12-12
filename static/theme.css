@@ -38,17 +38,18 @@ section.header>dl {
 	margin: 0
 }
 
-section.header>dl>dd {
+section.header>dl>dt {
 	font-style: italic;
 	display: inline;
 	margin: 0;
 	margin-right: 0.25rem;
 }
 
-section.header>dl>dt {
+section.header>dl>dd {
 	color: var(--text);
 	display: inline;
 	margin-right: 1.5rem;
+	margin-left: 0;
 }
 
 
