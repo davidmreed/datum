@@ -155,6 +155,7 @@ img.icon {
 	}
 
 	img.icon {
-		filter: invert(62%) sepia(25%) saturate(869%) hue-rotate(359deg) brightness(95%) contrast(91%);
-	}
+        /* This is #ffb300 */
+        filter: invert(81%) sepia(33%) saturate(6481%) hue-rotate(2deg) brightness(104%) contrast(107%);
+    }
 }
