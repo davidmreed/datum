@@ -152,11 +152,16 @@ img.icon {
 		--accent: #ffb300;
 		--code: #dcdcdc;
 		--preformatted: #ccc;
-		--disabled: #111
+		--disabled: #111;
 	}
 
 	img.icon {
         /* This is #ffb300 */
         filter: invert(81%) sepia(33%) saturate(6481%) hue-rotate(2deg) brightness(104%) contrast(107%);
+    }
+
+	img,
+    video {
+        opacity: 1;
     }
 }
