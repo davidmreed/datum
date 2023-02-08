@@ -117,12 +117,11 @@ p code {
 	padding: 2px;
 }
 
-img.icon {
+.icon svg {
 	height: 1.5rem;
 	vertical-align: middle;
+	fill: var(--accent);
 }
-
-/* SVG filters generated via https://codepen.io/sosuke/pen/Pjoqqp to match accent color */
 
 @media(prefers-color-scheme: light) {
 	:root {
@@ -135,11 +134,6 @@ img.icon {
 		--preformatted: #444;
 		--marked: #ffdd33;
 		--disabled: #efefef;
-	}
-
-	img.icon {
-		/* This is #990000 */
-		filter: invert(10%) sepia(97%) saturate(4841%) hue-rotate(0deg) brightness(76%) contrast(113%);
 	}
 }
 
@@ -155,13 +149,8 @@ img.icon {
 		--disabled: #111;
 	}
 
-	img.icon {
-        /* This is #ffb300 */
-        filter: invert(81%) sepia(33%) saturate(6481%) hue-rotate(2deg) brightness(104%) contrast(107%);
-    }
-
 	img,
-    video {
-        opacity: 1;
-    }
+	video {
+		opacity: 1;
+	}
 }
