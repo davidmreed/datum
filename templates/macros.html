@@ -87,7 +87,7 @@
 {% endmacro content_item %}
 
 {% macro svg(item, alt) %}
-{% set svg_data = load_data(path="/svgs/" ~ item ~ ".svg") %}
+{% set svg_data = load_data(path="../svgs/" ~ item ~ ".svg") %}
 <span class="icon">
     {{ svg_data | safe }}
 </span>
