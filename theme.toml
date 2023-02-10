@@ -4,12 +4,9 @@ license = "MIT"
 homepage = "https://github.com/davidmreed/datum"
 min_version = "0.16.1"
 
-ignored_content = ["*.svg"]
-
 [author]
 name = "David Reed"
 homepage = "https://ktema.org"
-
 
 [extra]
 
