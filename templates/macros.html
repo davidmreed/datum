@@ -133,8 +133,13 @@
     {% endfor %}
     {% endif %}
     {% if config.extra.use_social_sharing %}
+    {% if config.extra.contact.twitter.username %}
+    {% set twitter_via = "&related=" ~ config.extra.contact.twitter.username ~ "&via=" ~ config.extra.contact.twitter.username %}
+    {% else %}
+    {% set twitter_via = "" %}
+    {% endif %}
     <a class="icon" aria-label="Share on Twitter"
-        href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.permalink }}&via={{ config.extra.contact.twitter.username }}&related={{ config.extra.contact.twitter.username }}"
+        href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.permalink }}{{twitter_via}}"
         rel="nofollow" target="_blank" title="Share on Twitter">
         {% if config.extra.use_icons %}
         {{ self::svg(item="brands/twitter", alt="Twitter") }}
