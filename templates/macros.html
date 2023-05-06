@@ -207,7 +207,7 @@
         {% if taxon.name == page.taxonomies.series[0] %}
         {% for each_page in taxon.pages | sort(attribute="date") %}
         <li>
-            <a href="{{page.permalink}}">{{ each_page.title }}</a>
+            <a href="{{ each_page.permalink }}">{{ each_page.title }}</a>
         </li>
         {% endfor %}
         {% endif %}
