@@ -105,39 +105,16 @@
 </a>
 {% endmacro contact %}
 
-
-{% macro resources(item) %}
-{% if item.extra.resources or config.extra.use_social_sharing %}
-<nav>
-    {% if item.extra.resources %}
-    {% for resource_type, resource in item.extra.resources %}
-    {% if resource.filename %}
-    {% set link = item.path ~ resource.filename %}
-    {% elif resource.link %}
-    {% set link = resource.link %}
-    {% elif resource.youtube_id %}
-    {% set link = "https://www.youtube.com/watch?v=" ~ resource.youtube_id %}
-    {% else %}
-    {{ throw(message="Resources must have a link, filename, or YouTube id") }}
-    {% endif %}
-    <a class="resource {% if config.extra.use_icons %}icon{% endif %}" href="{{ link }}">
-        {% if config.extra.use_icons and config.extra.resources[resource_type].icon %}
-        {{ self::svg(item=config.extra.resources[resource_type].icon, alt=resource_type | title ) }}
-        {% endif %}
-        {% if config.extra.resources[resource_type].link_text %}
-        {{ config.extra.resources[resource_type].link_text }}
-        {% else %}
-        {{ resource_type | title }}
-        {% endif %}
-    </a>
-    {% endfor %}
-    {% endif %}
+{% macro sharing() %}
     {% if config.extra.use_social_sharing %}
     {% if config.extra.contact.twitter.username %}
     {% set twitter_via = "&related=" ~ config.extra.contact.twitter.username ~ "&via=" ~ config.extra.contact.twitter.username %}
     {% else %}
     {% set twitter_via = "" %}
     {% endif %}
+    <div>
+    <dt>Share</dt>
+    <dd>
     <a class="icon" aria-label="Share on Twitter"
         href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.permalink }}{{twitter_via}}"
         rel="nofollow" target="_blank" title="Share on Twitter">
@@ -162,11 +139,43 @@
         {% if config.extra.use_icons %}
         {{ self::svg(item="solid/envelope", alt="Email") }}
         {% else %}
-        Twitter
+        Email
         {% endif %}
     </a>
+    </dd>
+    </div>
     {% endif %}
-</nav>
+{% endmacro %}
+
+
+{% macro resources(item) %}
+{% if item.extra.resources %}
+    <div>
+        <dt>Links</dt>
+        <dd>
+    {% for resource_type, resource in item.extra.resources %}
+    {% if resource.filename %}
+    {% set link = item.path ~ resource.filename %}
+    {% elif resource.link %}
+    {% set link = resource.link %}
+    {% elif resource.youtube_id %}
+    {% set link = "https://www.youtube.com/watch?v=" ~ resource.youtube_id %}
+    {% else %}
+    {{ throw(message="Resources must have a link, filename, or YouTube id") }}
+    {% endif %}
+    <a class="resource {% if config.extra.use_icons %}icon{% endif %}" href="{{ link }}">
+        {% if config.extra.use_icons and config.extra.resources[resource_type].icon %}
+        {{ self::svg(item=config.extra.resources[resource_type].icon, alt=resource_type | title ) }}
+        {% endif %}
+        {% if config.extra.resources[resource_type].link_text %}
+        {{ config.extra.resources[resource_type].link_text }}
+        {% else %}
+        {{ resource_type | title }}
+        {% endif %}
+    </a>
+    {% endfor %}
+        </dd>
+    </div>
 {% endif %}
 {% endmacro resources %}
 
@@ -201,7 +210,7 @@
 {% if page.taxonomies["series"] %}
 {% set all_series = get_taxonomy(kind="series") %}
 <details>
-    <summary>Part of a series: {{ page.taxonomies.series[0] }}</summary>
+    <summary>Series: {{ page.taxonomies.series[0] }}</summary>
     <ol>
         {% for taxon in all_series.items %}
         {% if taxon.name == page.taxonomies.series[0] %}

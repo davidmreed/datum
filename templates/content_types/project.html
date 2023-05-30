@@ -12,14 +12,18 @@
 
 <section class="header">
     <dl>
+        <div>
         <dt>Author</dt>
         <dd>{{ config.extra.site_owner_name }}</dd>
+        </div>
+        <div>
         <dt>Launched</dt>
         <dd><time datetime="{{ page.date }}">{{ page.date }}</time></dd>
+        </div>
+        {{ macros::resources(item=page) }}
     </dl>
 </section>
 
-{{ macros::resources(item=page) }}
 
 {{ page.content | safe }}
 

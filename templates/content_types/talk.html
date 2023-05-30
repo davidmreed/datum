@@ -12,16 +12,22 @@
 
 <section class="header">
     <dl>
+        <div>
         <dt>Speaker</dt>
         <dd>{{ config.extra.site_owner_name }}</dd>
+        </div>
+        <div>
         <dt>Presented</dt>
         <dd><time datetime="{{ page.date }}">{{ page.date }}</time></dd>
+        </div>
+        <div>
         <dt>Venue</dt>
         <dd>{{ page.extra.venue }}</dt>
+        </div>
+        {{ macros::resources(item=page) }}
     </dl>
 </section>
 
-{{ macros::resources(item=page) }}
 
 {% if page.extra.resources.video.youtube_id %}
 {{ macros::youtube(id=page.extra.resources.video.youtube_id) }}
