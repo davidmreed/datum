@@ -195,7 +195,7 @@
 {% macro render_series() %}
 {% if page.taxonomies["series"] %}
 {% set all_series = get_taxonomy(kind="series") %}
-<details>
+<details open>
     <summary>Series: {{ page.taxonomies.series[0] }}</summary>
     <ol>
         {% for taxon in all_series.items %}
