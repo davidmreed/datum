@@ -10,7 +10,7 @@
 <h2>
     Latest Publications
     {% if config.generate_feed %}
-    {% set rss_url = get_url(path=config.feed_filename, trailing_slash=false) %}
+    {% set rss_url = get_url(path="atom.xml", trailing_slash=false) %}
     <a href="{{ rss_url }}">
         {% if config.extra.use_icons %}
         {{ macros::svg(item="solid/rss", alt="RSS Feed") }}

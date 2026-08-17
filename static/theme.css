@@ -100,6 +100,10 @@ p {
     line-height: 1.85rem;
 }
 
+blockquote p {
+    margin: 0;
+}
+
 main a,
 main a:visited {
     color: var(--text);

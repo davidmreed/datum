@@ -6,12 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% block title %} {% endblock %} / {{ config.extra.site_title }}</title>
     {% block rss %}
-    {% set rss_url = get_url(path=config.feed_filename, trailing_slash=false) %}
-    {% if config.feed_filename == "rss.xml" %}
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ rss_url }}" />
-    {% else %}
-    <link rel="alternate" type="application/atom+xml" title="Feed" href="{{ rss_url }}" />
-    {% endif %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false)}}" />
+    <link rel="alternate" type="application/atom+xml" title="Feed" href="{{ get_url(path="atom.xml", trailing_slash=false)  }}" />
     {% endblock rss %}
     <link rel="stylesheet" type="text/css" href="/simple.min.css" />
     <link rel="stylesheet" type="text/css" href="/theme.css" />
